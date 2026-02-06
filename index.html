@@ -4,16 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Guess the number</title>
-    <link rel="stylessheet" href="./styles.css">
+   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <main id="game-container">
+    <main class="game-container">
 
         <h1>Guess the Number</h1>
-        <p>Guess the secret number based on the selected difficulty </p>
+        <p id="game-description">Guess the secret number based on the selected difficulty </p>
 <div class="difficulty">
     <label for="lavel">Difficulty:</label>
-    <select  id="lavel">
+    <select  id="level">
         <option value="easy">Easy (1-10)</option>
     <option value="medium">Medium (1-50)</option>
     <option value="hard">Hard (1-100)</option>
@@ -26,12 +26,12 @@
 </div>
 <p id="message" class="message"></p>
 <div class="stats">
-<p>Attempts: <span id="attempts">0</span> </p>
+<p>Attempts: <span id="attempts">0</span></p>
 <p>Previous Guesses: <span id="history">--</span></p>
 <p>Score: <span id="score">0</span></p>
 
 </div>
-<button id="restarBtn" class="restarBtn">Restart</button>
+<button id="restartBtn" class="restartBtn">Restart</button>
 
     </main>
     <script src="./script.js"></script>
