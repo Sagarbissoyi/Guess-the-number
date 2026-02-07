@@ -66,7 +66,28 @@ button:hover{
     font-weight: bold;
     margin: 12px 0;
 }
+.message.correct{
+    color: green;
+}
+.message.wrong{
+    color: red;
+}
+
+.stats{
+    font-size: 13px;
+    margin-top: 10px;
+    color: #444;
+
+}
+.restartBtn{
+    margin-top: 15px;
+    width: 100%;
+    background-color: #666;
+}
 
 
-
-
+@media(max-width:450px){
+    .game-container{
+        margin: 20px;
+    }
+}
