@@ -15,7 +15,7 @@ const scoreEl = document.getElementById("score");
 const levelSelect = document.getElementById("level");
 
 
-function setupGame{
+function setupGame(){
     const level = levelSelect.value;
 if(level=="easy"){
     secretNumber = randomNumber(1,10);
@@ -43,5 +43,30 @@ guessBtn.disabled=false;
 
 
 function randomNumber(min,max){
-    return Math.floor(Math.random()*(max-min+1))
+    return Math.floor(Math.random()*(max-min+1))+min;
 }
+
+guessBtn.addEventListener("click",function(){
+    const guess = Number(guessInput.value);
+    if(!guess){
+        message.textContent="Please enter a valid Number";
+        message.className="message Wrong";
+        return;
+    }
+    attempts++;
+    guesses.push(guess);
+    attemptsEl.textContent=attempts;
+    historyEl.textContent =guesses.join(", ");
+
+    if(guess === secretNumber){
+        message.textContent="Correct! You have guessed the correct";
+        message.className = "message correct"
+        score = (maxAttempts - attempts)*10;
+        scoreEl.textContent=score;
+        endGame();
+    }
+    else if(guess > secretNumber){
+        message.textContent = "Too high! try a lower"
+    }
+})
+
