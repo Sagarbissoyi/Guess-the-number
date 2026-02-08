@@ -66,7 +66,33 @@ guessBtn.addEventListener("click",function(){
         endGame();
     }
     else if(guess > secretNumber){
-        message.textContent = "Too high! try a lower"
+        message.textContent = "Too high! Try a lower Number";
+        message.className = "message wrong"
     }
+    else{
+          message.textContent = "Too high! Try a higher Number";
+        message.className = "message wrong"
+    }
+    if(attempts >= maxAttempts && guess!=secretNumber){
+ message.textContent =` Game Over! the number was ${secretNumber}.`;
+        message.className = "message wrong";
+        endGame();
+    }
+    guessInput.value="";
 })
 
+function endGame(){
+    guessInput.disabled=true;
+    guessBtn.disabled = true;
+    restartBtn.addEventListener("click",setupGame);
+    levelSelect.addEventListener("change",setupGame)
+}
+
+
+function updateUI(){
+    attemptsEl.textContent=attempts;
+    historyEl.textContent="__";
+    scoreEl.textContent=score;
+}
+
+setupGame()
